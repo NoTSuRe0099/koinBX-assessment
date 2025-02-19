@@ -1,0 +1,132 @@
+[
+  {
+    "category": "Starters",
+    "items": [
+      {
+        "name": "Spring Rolls",
+        "price": 5.99,
+        "ingredients": ["Cabbage", "Carrot", "Spring Roll Wrapper", "Soy Sauce"]
+      },
+      {
+        "name": "Garlic Bread",
+        "price": 4.99,
+        "ingredients": ["Bread", "Butter", "Garlic", "Parsley"]
+      },
+      {
+        "name": "Bruschetta",
+        "price": 6.49,
+        "ingredients": ["Tomatoes", "Basil", "Garlic", "Bread"]
+      },
+      {
+        "name": "Stuffed Mushrooms",
+        "price": 7.99,
+        "ingredients": ["Mushrooms", "Cheese", "Garlic", "Breadcrumbs"]
+      }
+    ]
+  },
+  {
+    "category": "Main Course",
+    "subcategories": [
+      {
+        "name": "Vegetarian",
+        "items": [
+          {
+            "name": "Paneer Butter Masala",
+            "price": 10.99,
+            "ingredients": ["Paneer", "Tomato", "Butter", "Cream", "Spices"]
+          },
+          {
+            "name": "Veg Biryani",
+            "price": 9.99,
+            "ingredients": ["Rice", "Vegetables", "Spices", "Saffron"]
+          },
+          {
+            "name": "Dal Makhani",
+            "price": 8.99,
+            "ingredients": ["Lentils", "Butter", "Cream", "Spices"]
+          },
+          {
+            "name": "Stuffed Capsicum",
+            "price": 9.49,
+            "ingredients": ["Capsicum", "Potato", "Spices", "Cheese"]
+          }
+        ]
+      },
+      {
+        "name": "Non-Vegetarian",
+        "items": [
+          {
+            "name": "Chicken Curry",
+            "price": 12.99,
+            "ingredients": ["Chicken", "Onion", "Tomato", "Spices"]
+          },
+          {
+            "name": "Fish Fry",
+            "price": 14.99,
+            "ingredients": ["Fish", "Lemon", "Spices", "Flour"]
+          },
+          {
+            "name": "Lamb Rogan Josh",
+            "price": 15.49,
+            "ingredients": ["Lamb", "Yogurt", "Spices", "Tomato"]
+          },
+          {
+            "name": "Prawn Masala",
+            "price": 16.99,
+            "ingredients": ["Prawns", "Coconut Milk", "Spices", "Garlic"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Desserts",
+    "items": [
+      {
+        "name": "Gulab Jamun",
+        "price": 6.99,
+        "ingredients": ["Milk Powder", "Sugar Syrup", "Cardamom"]
+      },
+      {
+        "name": "Chocolate Cake",
+        "price": 7.99,
+        "ingredients": ["Flour", "Cocoa", "Sugar", "Eggs"]
+      },
+      {
+        "name": "Rasmalai",
+        "price": 8.49,
+        "ingredients": ["Milk", "Sugar", "Saffron", "Cardamom"]
+      },
+      {
+        "name": "Cheesecake",
+        "price": 9.99,
+        "ingredients": ["Cream Cheese", "Sugar", "Graham Crackers", "Vanilla"]
+      }
+    ]
+  },
+  {
+    "category": "Beverages",
+    "items": [
+      {
+        "name": "Masala Chai",
+        "price": 3.99,
+        "ingredients": ["Tea Leaves", "Milk", "Spices", "Sugar"]
+      },
+      {
+        "name": "Cold Coffee",
+        "price": 4.99,
+        "ingredients": ["Coffee", "Milk", "Sugar", "Ice Cubes"]
+      },
+      {
+        "name": "Mango Lassi",
+        "price": 5.49,
+        "ingredients": ["Mango", "Yogurt", "Sugar", "Cardamom"]
+      },
+      {
+        "name": "Lemonade",
+        "price": 3.49,
+        "ingredients": ["Lemon", "Sugar", "Water", "Mint"]
+      }
+    ]
+  }
+]
