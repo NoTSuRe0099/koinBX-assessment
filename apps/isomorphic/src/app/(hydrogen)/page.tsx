@@ -4,11 +4,10 @@ import { useState, useMemo, useEffect } from 'react';
 import Table from '@core/components/table';
 import { useTanStackTable } from '@core/components/table/custom/use-TanStack-Table';
 import TablePagination from '@core/components/table/pagination';
-import { Box, Flex, Text, Title, Input } from 'rizzui'; // Import Input for search
+import { Box, Flex, Text, Title, Input } from 'rizzui';
 import menuDataJson from './data.json';
 import { createColumnHelper } from '@tanstack/react-table';
 
-// Define types
 export interface MenuCategory {
   category: string;
   items?: MenuItem[];
@@ -150,7 +149,7 @@ export default function MenuTable({ className }: { className?: string }) {
   }, [search]);
 
   const { table } = useTanStackTable<HierarchicalData>({
-    tableData: filteredData, // Use filtered data
+    tableData: filteredData, 
     columnConfig: columns,
     options: {
       getSubRows: (row) => row.subRows || undefined,
@@ -180,11 +179,11 @@ export default function MenuTable({ className }: { className?: string }) {
           className="w-64"
           placeholder="Search menu..."
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e?.target?.value)}
         />
       </div>
       <Box className="space-y-4">
-        <Table key={filteredData.length} table={table} />
+        <Table key={filteredData?.length} table={table} />
         <TablePagination table={table} />
       </Box>
     </div>
