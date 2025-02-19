@@ -26,7 +26,6 @@ export interface MenuSubcategory {
   items: MenuItem[];
 }
 
-// Define the hierarchical data structure
 export interface HierarchicalData {
   name: string;
   subRows?: HierarchicalData[];
@@ -34,12 +33,11 @@ export interface HierarchicalData {
   ingredients?: string[];
 }
 
-// Transform menu data into hierarchical structure
 const transformMenuData = (menu: MenuCategory[]): HierarchicalData[] => {
   return menu.map((category) => ({
     name: category.category,
-    subRows: category.subcategories
-      ? category.subcategories.map((sub) => ({
+    subRows: category?.subcategories
+      ? category?.subcategories?.map((sub) => ({
           name: sub.name,
           subRows: sub.items.map((item) => ({
             name: item.name,
@@ -47,7 +45,7 @@ const transformMenuData = (menu: MenuCategory[]): HierarchicalData[] => {
             ingredients: item.ingredients,
           })),
         }))
-      : category.items?.map((item) => ({
+      : category?.items?.map((item) => ({
           name: item.name,
           price: item.price,
           ingredients: item.ingredients,
@@ -79,16 +77,18 @@ export const columns = [
                   : 'ml-6 font-medium text-gray-500'
             }`}
           >
-            {row?.original?.subRows?.length && row.getCanExpand() && (
-              <button
-                {...{
-                  onClick: row.getToggleExpandedHandler(),
-                  style: { marginRight: '10px' },
-                }}
-              >
-                {row.getIsExpanded() ? '▼' : '▶'}
-              </button>
-            )}
+            {row?.original?.subRows?.length
+              ? row.getCanExpand() && (
+                  <button
+                    {...{
+                      onClick: row.getToggleExpandedHandler(),
+                      style: { marginRight: '10px' },
+                    }}
+                  >
+                    {row.getIsExpanded() ? '▼' : '▶'}
+                  </button>
+                )
+              : null}
             {info.getValue() || EMPTY}
           </Text>
         </Flex>
@@ -122,7 +122,6 @@ export const columns = [
 export default function MenuTable({ className }: { className?: string }) {
   const [search, setSearch] = useState('');
 
-  // Filter hierarchical data based on search input
   const filteredData = useMemo(() => {
     if (!search) return hierarchicalData;
 
@@ -150,7 +149,6 @@ export default function MenuTable({ className }: { className?: string }) {
     return filterItems(hierarchicalData);
   }, [search]);
 
-  // ✅ Call the hook at the top level
   const { table } = useTanStackTable<HierarchicalData>({
     tableData: filteredData, // Use filtered data
     columnConfig: columns,
@@ -168,10 +166,9 @@ export default function MenuTable({ className }: { className?: string }) {
     },
   });
 
-  // Expand all rows after table initializes
   useEffect(() => {
     table.toggleAllRowsExpanded(true);
-  }, [filteredData]); // ✅ Ensure this effect runs when filteredData updates
+  }, [filteredData]);
 
   return (
     <div className={className}>
@@ -187,7 +184,7 @@ export default function MenuTable({ className }: { className?: string }) {
         />
       </div>
       <Box className="space-y-4">
-        <Table table={table} />
+        <Table key={filteredData.length} table={table} />
         <TablePagination table={table} />
       </Box>
     </div>

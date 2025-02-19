@@ -26,7 +26,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import React from "react";
+import React, { useEffect } from "react";
 
 interface ExtendTableOptions<T extends Record<string, unknown>>
   extends Omit<TableOptions<T>, "data" | "columns" | "getCoreRowModel" | "state"> {}
@@ -52,6 +52,10 @@ export function useTanStackTable<T extends Record<string, any>>({
     top: [],
     bottom: [],
   });
+
+  useEffect(() => {
+    setData(tableData);
+  }, [tableData]);
 
   // ===================================================================================================
   // these are custom functions dependent on dnd kit and react-table to handle Drag and Drop events
